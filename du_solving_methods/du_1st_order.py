@@ -121,7 +121,8 @@ def adams_meulton(my_math_func,
     amount_points = int((x_k - x0) / h)
     x_i = x0
     y_i = y_0
-
+    res_list.append((round(x_i, step_round),
+                     round(y_i, step_round)))
     for i in range(3):
         x_i += h
         k1 = h * my_math_func(x_i, y_i)
