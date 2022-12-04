@@ -14,7 +14,7 @@ def pretty_print_el4(lt_values: list[tuple[float, float, float, float]], step_sh
 
     for x, y1, y2, y3 in lt_values:
         if (x * 10**step_exponentiate) % (step_show * 10**step_exponentiate) == 0:
-            print(f"x = {x::5.8f},\t y1 = {y1::5.8f},\t y2 = {y2:5.8f},\t y3 = {y3:5.8f}")
+            print(f"x = {x:5.8f},\t y1 = {y1:5.8f},\t y2 = {y2:5.8f},\t y3 = {y3:5.8f}")
 
     if (lt_values[-1][0] * 10**step_exponentiate) % (step_show * 10**step_exponentiate) != 0:
         # print edge values if they are not in step_show
