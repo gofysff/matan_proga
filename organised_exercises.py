@@ -5,12 +5,21 @@ import du_solving_methods.du_2nd_order as du_2ord
 import help_part as hp
 
 
-def first_exercise(x_0=1, x_k=6, y_0=-0.5, eps=0.0001, active_func=mf.my_func1_exersise1, step_showing=0.5) -> None:
+def print_number_ex(func, number: str):
+    def wrapper(*args, **kwargs):
+        print(f"\n\nThis is the {number} exercise")
+        return func(*args, **kwargs)
+
+    return wrapper
+
+
+def _first_exercise(x_0=1, x_k=6, y_0=-0.5, eps=0.0001, active_func=mf.my_func1_exersise1, step_showing=0.5) -> None:
     """function that organizes the decision of the first issue"""
+    # print("\n\n\nThis is the first number")
 
     print(f"x_0 is {x_0}, y_0 is {y_0}, x_k is {x_k}, epsilon is {eps}")
 
-    '''let's create lists of [x, y_1, y_2] by every solving methods using craated functions'''
+    '''let's create lists of [x, y_1, y_2] by every solving methods using created functions'''
     res_eulier = du_1ord.euler(active_func, x_0, x_k, y_0, eps)
     res_runge_kutta4 = du_1ord.runge_kutta4(
         active_func, x_0, x_k, y_0, eps)
@@ -38,8 +47,8 @@ def first_exercise(x_0=1, x_k=6, y_0=-0.5, eps=0.0001, active_func=mf.my_func1_e
         res_adams_meult, step_showing)
 
 
-def second_exercise(x_0=0, x_k=2, y_0_0=0.2, y_0_1=-3, eps=0.0001, my_math_f1=mf.my_func1_exersise2,
-                    my_math_f2=mf.my_func2_exersise2, step_showing=0.2) -> None:
+def _second_exercise(x_0=0, x_k=2, y_0_0=0.2, y_0_1=-3, eps=0.0001, my_math_f1=mf.my_func1_exersise2,
+                     my_math_f2=mf.my_func2_exersise2, step_showing=0.2) -> None:
     """function that organizes the decision of the third issue"""
 
     print(f"x_0 is {x_0}, y_0_1 is {y_0_0}, y_0_2 is {y_0_1}, x_k is {x_k}, epsilon is {eps}")
@@ -68,8 +77,8 @@ def second_exercise(x_0=0, x_k=2, y_0_0=0.2, y_0_1=-3, eps=0.0001, my_math_f1=mf
         res_adams_meult, step_showing)
 
 
-def third_exercise(x_0=0, x_k=2, y_0_0=1, y_0_1=0, y_0_2=1, eps=0.0001, my_math_f1=mf.test1, my_math_f2=mf.test2,
-                   my_math_f3=mf.test3, step_showing=0.2) -> None:
+def _third_exercise(x_0=0, x_k=2, y_0_0=1, y_0_1=0, y_0_2=1, eps=0.0001, my_math_f1=mf.test1, my_math_f2=mf.test2,
+                    my_math_f3=mf.test3, step_showing=0.2) -> None:
     """function that organizes the decision of the third issue"""
 
     print(f"x_0 is {x_0}, y_0_1 is {y_0_0}, y_0_2 is {y_0_1}, y_0_3 is {y_0_2} x_k is {x_k}, epsilon is {eps}")
@@ -96,3 +105,25 @@ def third_exercise(x_0=0, x_k=2, y_0_0=1, y_0_1=0, y_0_2=1, eps=0.0001, my_math_
     print("Solved by adams-meulton method")
     hp.pretty_print_el4(
         res_adams_meult, step_showing)
+
+
+def first_exercise(x_0=1, x_k=6, y_0=-0.5, eps=0.0001, active_func=mf.my_func1_exersise1, step_showing=0.5):
+    return print_number_ex(_first_exercise, "first")(x_0, x_k, y_0, eps, active_func, step_showing)
+
+
+def second_exercise(x_0=0, x_k=2, y_0_0=0.2, y_0_1=-3, eps=0.0001, my_math_f1=mf.my_func1_exersise2,
+                    my_math_f2=mf.my_func2_exersise2, step_showing=0.2):
+    return print_number_ex(_second_exercise, "second")(x_0, x_k, y_0_0, y_0_1, eps, my_math_f1,
+                                                       my_math_f2, step_showing)
+
+
+def third_exercise(x_0=0, x_k=2, y_0_0=1, y_0_1=0, y_0_2=1, eps=0.0001, my_math_f1=mf.test1, my_math_f2=mf.test2,
+                   my_math_f3=mf.test3, step_showing=0.2):
+    return print_number_ex(_third_exercise, "third")(x_0, x_k, y_0_0, y_0_1, y_0_2, eps, my_math_f1, my_math_f2,
+                                                     my_math_f3, step_showing)
+
+
+def fourth_exercise(x_0, x_k, y_0_0, y_0_1, y_0_2, eps, my_math_f1, my_math_f2,
+                    my_math_f3, step_showing=0.2):
+    return print_number_ex(_third_exercise, "fourth")(x_0, x_k, y_0_0, y_0_1, y_0_2, eps, my_math_f1, my_math_f2,
+                                                      my_math_f3, step_showing)
