@@ -6,7 +6,7 @@ def exercise4_func1(x, y1, y2, y3) -> float:
 
 
 def exercise4_func2(x, y1, y2, y3) -> float:
-    return y1
+    return y3
 
 
 def exercise4_func3(x, y1, y2, y3) -> float:
