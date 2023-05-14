@@ -24,7 +24,7 @@ def chebishev(func, a: float, b: float, n: int) -> float:
     coeficients = coeficients_n[n]
 
     # coef for all points
-    t_coef = (b+a)/2*(b-a)/2
+    t_coef = (b+a)/2+(b-a)/2
 
     # calculate points
     points_t = [t_coef*x for x in coeficients]
@@ -36,12 +36,12 @@ def chebishev(func, a: float, b: float, n: int) -> float:
 
 if __name__ == "__main__":
     x = sp.symbols('x')
-    # f = sin(x)^4
+
     f = sp.sin(x) ** 4
     print(type(f))
     a = 0
     b = 2
-    n = 9
+    n = 7
     print(chebishev(f, a, b, n))
     # print sympy integral from a to b
     print(sp.integrate(f, (x)).evalf(
