@@ -195,15 +195,15 @@ def zadan6():
 
     # очищение графика от 1 и 2 задания
     plt.waitforbuttonpress()
-    # points1.remove()
-    # plot1.remove()
-    # plot2.remove()
+    points1.remove()
+    plot1.remove()
+    plot2.remove()
 
 
 # zadan1()
 # zadan3()
-zadan4()
+# zadan4()
 # zadan5()
-# zadan6()
+zadan6()
 
 plt.show()
